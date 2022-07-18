@@ -6,7 +6,7 @@
 /*   By: aarribas <aarribas@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 10:32:10 by aarribas          #+#    #+#             */
-/*   Updated: 2022/05/30 10:45:58 by aarribas         ###   ########.fr       */
+/*   Updated: 2022/07/18 10:01:31 by aarribas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,5 @@ int	main(int ac, char **av)
 {
 	t_global global;
 	if (ac < 2)
-		return (0);
-	else
-	{
-	}
+		return (1);
 }
