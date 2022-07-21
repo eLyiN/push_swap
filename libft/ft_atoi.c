@@ -6,7 +6,7 @@
 /*   By: aarribas <aarribas@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 22:50:32 by aarribas          #+#    #+#             */
-/*   Updated: 2022/07/20 13:51:34 by aarribas         ###   ########.fr       */
+/*   Updated: 2022/07/21 12:17:29 by aarribas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ int	ft_atoi(const char *str, int *nb)
 	}
 	if (str[i] != '\0' || nbr * signo > 2147483647 || nbr * signo < -2147483648)
 		return (1);
-	*nb = nbr * signo;
+	*nb = (int)nbr * signo;
 	return (0);
 }
