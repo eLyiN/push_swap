@@ -6,33 +6,68 @@
 /*   By: aarribas <aarribas@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:34:15 by aarribas          #+#    #+#             */
-/*   Updated: 2022/07/20 23:25:00 by aarribas         ###   ########.fr       */
+/*   Updated: 2022/07/22 01:13:18 by aarribas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-/*int	swap_ra(t_global *g)
+void	swap_ra(t_stack *stack_a)
 {
-	return (0);
+	size_t	i;
+	int		tmp;
+
+	tmp = stack_a->array[0];
+	i = 0;
+	while (i < (stack_a->size - 1))
+	{
+		stack_a->array[i] = stack_a->array[i + 1];
+		i++;
+	}
+	stack_a->array[i] = tmp;
 }
 
-int	swap_rb(t_global *g)
+void	swap_rb(t_stack *stack_b)
 {
-	return (0);
+	size_t	i;
+	int		tmp;
+
+	tmp = stack_b->array[0];
+	i = 0;
+	while (i < (stack_b->size - 1))
+	{
+		stack_b->array[i] = stack_b->array[i + 1];
+		i++;
+	}
+	stack_b->array[i] = tmp;
 }
 
-int	swap_rra(t_global *g)
+void	swap_rra(t_stack *stack_a)
 {
-	return (0);
+	size_t	i;
+	int		tmp;
+
+	tmp = stack_a->array[stack_a->size - 1];
+	i = stack_a->size;
+	while (i > 0)
+	{
+		stack_a->array[i] = stack_a->array[i - 1];
+		i--;
+	}
+	stack_a->array[0] = tmp;
 }
 
-int	swap_rrb(t_global *g)
+void	swap_rrb(t_stack *stack_b)
 {
-	return (0);
-}
+	size_t	i;
+	int		tmp;
 
-int	swap_rrr(t_global *g)
-{
-	return (0);
-}*/
+	tmp = stack_b->array[stack_b->size - 1];
+	i = stack_b->size;
+	while (i > 0)
+	{
+		stack_b->array[i] = stack_b->array[i - 1];
+		i--;
+	}
+	stack_b->array[0] = tmp;
+}
