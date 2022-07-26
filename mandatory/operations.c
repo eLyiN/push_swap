@@ -6,7 +6,7 @@
 /*   By: aarribas <aarribas@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 10:54:03 by aarribas          #+#    #+#             */
-/*   Updated: 2022/07/21 20:32:56 by aarribas         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:23:21 by aarribas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	swap_sa(t_stack *stack_a)
 		stack_a->array[0] = stack_a->array[1];
 		stack_a->array[1] = tmp;
 	}
+	ft_putstr_fd("sa\n", STDOUT_FILENO);
 }
 
 void	swap_sb(t_stack *stack_b)
@@ -34,6 +35,7 @@ void	swap_sb(t_stack *stack_b)
 		stack_b->array[0] = stack_b->array[1];
 		stack_b->array[1] = tmp;
 	}
+	ft_putstr_fd("sb\n", STDOUT_FILENO);
 }
 
 void	swap_pa(t_stack *stack_a, t_stack *stack_b)
@@ -42,21 +44,23 @@ void	swap_pa(t_stack *stack_a, t_stack *stack_b)
 
 	if (stack_b->size > 0)
 	{
-		i = stack_a->size++;
+		i = stack_a->size;
 		while (i > 0)
 		{
 			stack_a->array[i] = stack_a->array[i - 1];
 			i--;
 		}
 		stack_a->array[0] = stack_b->array[0];
+		stack_a->size++;
+		stack_b->size--;
 		i = 0;
 		while (i < stack_b->size)
 		{
 			stack_b->array[i] = stack_b->array[i + 1];
 			i++;
 		}
-		stack_b->size--;
 	}
+	ft_putstr_fd("pa\n", STDOUT_FILENO);
 }
 
 void	swap_pb(t_stack *stack_b, t_stack *stack_a)
@@ -65,16 +69,21 @@ void	swap_pb(t_stack *stack_b, t_stack *stack_a)
 
 	if (stack_a->size > 0)
 	{
-		i = stack_b->size++;
+		i = stack_b->size;
 		while (i > 0)
 		{
 			stack_b->array[i] = stack_b->array[i - 1];
 			i--;
 		}
 		stack_b->array[0] = stack_a->array[0];
+		stack_b->size++;
 		stack_a->size--;
-		i = -1;
-		while (i++ < stack_a->size)
+		i = 0;
+		while (i < stack_a->size)
+		{
 			stack_a->array[i] = stack_a->array[i + 1];
+			i++;
+		}
 	}
+	ft_putstr_fd("pb\n", STDOUT_FILENO);
 }

@@ -6,7 +6,7 @@
 /*   By: aarribas <aarribas@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:12:02 by aarribas          #+#    #+#             */
-/*   Updated: 2022/07/21 14:17:51 by aarribas         ###   ########.fr       */
+/*   Updated: 2022/07/24 17:13:54 by aarribas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ size_t	stack_counter(int ac, char *av[])
 
 int	stacks_fill(int ac, char *av[], t_stack *stack_a, t_stack *stack_b)
 {
-	size_t stack_size;
+	size_t	stack_size;
 
 	stack_size = stack_counter(ac, av);
 	stack_a->max_size = stack_size;
