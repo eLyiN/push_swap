@@ -6,7 +6,7 @@
 /*   By: aarribas <aarribas@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 10:32:06 by aarribas          #+#    #+#             */
-/*   Updated: 2022/07/26 19:23:53 by aarribas         ###   ########.fr       */
+/*   Updated: 2022/07/27 12:39:02 by aarribas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_program
 	size_t	chnk_stack;
 	size_t	chnk_max_stack;
 	size_t	chnk_count;
-	size_t	nb_swaped;
+	size_t	chnk_max_count;
 
 }			t_program;
 
@@ -69,15 +69,11 @@ int			sort_three_nb(t_stack *stack_a);
 
 /*calculations.c*/
 
-int			chk_b_nd_push(t_stack *stack_a, t_stack *stack_b);
+int			chk_b_nd_push(t_program *s100, t_global *g, int *index);
 void		place_bottom(t_stack *stack);
 void		place_top(t_program *s100, t_stack *stack);
 int			find_smallest_nb(t_stack *stack);
 int			find_highest_nb(t_stack *stack);
-
-/*calculations_1.c*/
-int			find_last_pos_b(t_stack *stack_b);
-int			find_first_pos_b(t_stack *stack_b);
 
 /*big_sort.c*/
 int			start_sort_big(t_global *global);
@@ -85,5 +81,6 @@ int			start_program(t_program *s100, t_global *global);
 int			simple_indexation(t_program *s100, t_stack *stack_a, int *index);
 int			chunk_phase(t_program *s100, t_global *g, int *index);
 void		get_holds(t_program *s100, t_stack *stack, int *index);
+void		get_next_chunk(t_program *s100);
 
 #endif

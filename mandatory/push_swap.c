@@ -6,7 +6,7 @@
 /*   By: aarribas <aarribas@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 10:32:10 by aarribas          #+#    #+#             */
-/*   Updated: 2022/07/26 10:47:50 by aarribas         ###   ########.fr       */
+/*   Updated: 2022/07/27 00:33:47 by aarribas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	check_sorted_nb(t_stack *stack_a)
 int	main(int ac, char **av)
 {
 	t_global	global;
-	size_t		i;
 
 	if (ac < 2)
 		return (1);
@@ -43,11 +42,7 @@ int	main(int ac, char **av)
 			return (1);
 	if (global.stack_a.size > 5)
 		start_sort_big(&global);
-	i = -1;
-	while (++i < global.stack_a.size)
-		printf("Stack_A[%ld]:%d \n", i, global.stack_a.array[i]);
-	i = -1;
-	while (++i < global.stack_b.size)
-		printf("Stack_B[%ld]:%d \n", i, global.stack_b.array[i]);
+	free(global.stack_a.array);
+	free(global.stack_b.array);
 	return (0);
 }
