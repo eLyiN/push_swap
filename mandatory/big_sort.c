@@ -6,7 +6,7 @@
 /*   By: aarribas <aarribas@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 09:11:02 by aarribas          #+#    #+#             */
-/*   Updated: 2022/07/28 10:45:08 by aarribas         ###   ########.fr       */
+/*   Updated: 2022/07/28 11:04:12 by aarribas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,16 @@ int	start_sort_big(t_global *global)
 	i = -1;
 	while (++i < (int)global->stack_b.size)
 		printf("STACK_B[%d]: %d\n", i, global->stack_b.array[i]);
-	/*while (global->stack_b.size != 0)
+	while (global->stack_b.size != 0)
 	{
-		place_top(&s100, &global->stack_b);
-		push_b_phase(&s100, global);
-	}*/
+		if (global->stack_b.size != 1)
+		{
+			swap_rrb(&global->stack_b);
+			swap_pa(&global->stack_a, &global->stack_b);
+		}
+		else if (global->stack_b.size == 1)
+			swap_pa(&global->stack_a, &global->stack_b);
+	}
 	i = -1;
 	while (++i < (int)global->stack_a.size)
 		printf("STACK_A[%d]: %d\n", i, global->stack_a.array[i]);
