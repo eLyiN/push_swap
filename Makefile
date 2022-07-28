@@ -6,7 +6,7 @@
 #    By: aarribas <aarribas@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/20 15:57:51 by aarribas          #+#    #+#              #
-#    Updated: 2022/07/27 00:18:58 by aarribas         ###   ########.fr        #
+#    Updated: 2022/07/27 23:07:56 by aarribas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,8 @@ OBJS			=	$(PUSH_SWAP_SRC:.c=.o)
 LIBFT_DIR		=	libft/
 LIBFT			=	$(addprefix $(LIBFT_DIR),libft.a)
 
-MANDATORY_SRCS	=	operations.c operations_1.c push_swap.c stacks_fill.c \
-					small_sort.c calculations.c big_sort.c \
+MANDATORY_SRCS	=	operations.c operations_1.c operations_2.c push_swap.c \
+					stacks_fill.c small_sort.c calculations.c big_sort.c \
 					
 MANDATORY_DIR	=	mandatory/
 MANDATORY		=	$(addprefix $(MANDATORY_DIR), $(MANDATORY_SRCS))

@@ -6,29 +6,24 @@
 /*   By: aarribas <aarribas@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 23:47:11 by aarribas          #+#    #+#             */
-/*   Updated: 2022/07/27 13:49:55 by aarribas         ###   ########.fr       */
+/*   Updated: 2022/07/28 11:00:32 by aarribas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	chk_b_nd_push(t_program *s100, t_global *g, int *index)
+int	chk_b_nd_push(t_global *g, int *index)
 {
-	if (&g->stack_b.size <= 2)
+	if (g->stack_b.size < 2)
 	{
 		swap_pb(&g->stack_b, &g->stack_a);
-		if (&g->stack_b.array[0] > &g->stack_b.array[1]
-			&& &g->stack_b.size == 2)
+		index_clear(index, &g->stack_a);
+		if (&g->stack_b.array[0] > &g->stack_b.array[1] && g->stack_b.size == 2)
 			swap_sb(&g->stack_b);
 		return (0);
 	}
-	if (!check_sorted_nb(&g->stack_b))
-	{
-		place_bottom(&g->stack_b);
-		swap_pb(&g->stack_b, &g->stack_a);
-	}
 	else
-		swap_pb(&g->stack_b, &g->stack_a);
+		new_logic(g);
 	return (0);
 }
 
@@ -111,7 +106,7 @@ int	find_highest_nb(t_stack *stack)
 	return (0);
 }
 
-void	new_logic(t_program *s100, t_global *g, int *index)
+void	new_logic(t_global *g)
 {
 	size_t	i;
 	size_t	j;
@@ -120,11 +115,14 @@ void	new_logic(t_program *s100, t_global *g, int *index)
 
 	mid = g->stack_b.size / 2;
 	i = 0;
-	while (g->stack_a.array[0] > g->stack_b.array[i] && i <= mid)
+	while (g->stack_a.array[0] > g->stack_b.array[i] && i < mid)
 		i++;
 	j = g->stack_b.size - 1;
-	while (g->stack_a.array[0] < g->stack_b.array[j] && j >= mid)
+	while (g->stack_a.array[0] < g->stack_b.array[j] && j > mid)
 		j--;
+	j = (g->stack_b.size - 1) - j;
+	printf("I status: %ld\n", i);
+	printf("j status: %ld\n", j);
 	if (i < j || i == j)
 	{
 		k = 0;
@@ -144,10 +142,10 @@ void	new_logic(t_program *s100, t_global *g, int *index)
 	else
 	{
 		k = 0;
-		while (j < g->stack_b.size - 1)
+		while (j > 0)
 		{
 			swap_rrb(&g->stack_b);
-			j++;
+			j--;
 			k++;
 		}
 		swap_pb(&g->stack_b, &g->stack_a);
@@ -156,6 +154,7 @@ void	new_logic(t_program *s100, t_global *g, int *index)
 			swap_rb(&g->stack_b);
 			k--;
 		}
+		swap_rb(&g->stack_b);
 	}
 }
 
